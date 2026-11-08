@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كوافير صبايا | Sabaya Salon & Beauty Store</title>
+
+    <!-- Google Fonts: Cairo & Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rosegold: {
+                            50: '#FDF7F8',
+                            100: '#FAF0F2',
+                            200: '#F4D9DF',
+                            300: '#E8B4B8',
+                            400: '#D98A92',
+                            500: '#C8626C',
+                            600: '#B04651',
+                            700: '#8E333C',
+                        },
+                        champagne: '#D4AF37',
+                        luxuryDark: '#120E14',
+                        glassBg: 'rgba(255, 255, 255, 0.85)',
+                        darkGlass: 'rgba(26, 20, 29, 0.75)'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'shimmer': 'shimmer 2.5s infinite linear',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #FAF6F7;
+            color: #2D262E;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism subtle backdrop */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(232, 180, 184, 0.25);
+        }
+
+        .glass-dark {
+            background: rgba(26, 18, 28, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(232, 180, 184, 0.15);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #B04651 0%, #E8B4B8 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-button {
+            background: linear-gradient(135deg, #E8B4B8 0%, #C8626C 100%);
+            transition: all 0.3s ease;
+        }
+
+        .gold-button:hover {
+            background: linear-gradient(135deg, #C8626C 0%, #8E333C 100%);
+            box-shadow: 0 10px 25px -5px rgba(200, 98, 108, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF0F2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E8B4B8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C8626C;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col justify-between">
+
+    <!-- ========================================== -->
+    <!--          HEADER / NAVIGATION               -->
+    <!-- ========================================== -->
+    <header class="sticky top-0 z-40 w-full glass-panel shadow-sm transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo Section -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-full bg-rosegold-100 flex items-center justify-center p-2 shadow-inner border border-rosegold-300 group-hover:scale-105 transition-transform duration-300">
+                    <!-- SVG Logo: Sabaya Beauty -->
+                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                        <path d="M50 10 C 25 10, 15 35, 15 55 C 15 75, 30 90, 50 90 C 70 90, 85 75, 85 55 C 85 35, 75 10, 50 10 Z" fill="none" stroke="#C8626C" stroke-width="2"/>
+                        <!-- Woman Silhouette Hair Pattern -->
+                        <path d="M35 30 Q 50 15, 65 30 Q 75 45, 60 65 Q 50 80, 40 60 Q 30 40, 35 30 Z" fill="#E8B4B8" opacity="0.8"/>
+                        <path d="M48 22 C 55 20, 62 25, 60 35 C 58 45, 45 50, 42 62" fill="none" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="58" cy="32" r="3" fill="#D4AF37"/>
+                        <path d="M30 45 Q 40 35, 50 48 T 70 45" fill="none" stroke="#C8626C" stroke-width="1.5" stroke-dasharray="2,2"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-wide gold-gradient-text block leading-none font-tajawal" id="salonLogoTitle">كوافير صبايا</span>
+                    <span class="text-xs text-rosegold-600 font-semibold tracking-wider font-cairo" id="salonSubtitle">عالم من الأناقة والجمال</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-gray-700">
+                <a href="#hero" class="hover:text-rosegold-600 transition-colors duration-200">الرئيسية</a>
+                <a href="#services-products" class="hover:text-rosegold-600 transition-colors duration-200">الخدمات والمنتجات</a>
+                <a href="#about" class="hover:text-rosegold-600 transition-colors duration-200">لماذا نحن؟</a>
+                <a href="#reviews" class="hover:text-rosegold-600 transition-colors duration-200">آراء الصبايا</a>
+            </nav>
+
+            <!-- Action Buttons & Cart -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleCartDrawer()" class="relative p-3 rounded-full bg-rosegold-100 text-rosegold-700 hover:bg-rosegold-200 transition-all duration-300 focus:outline-none" title="سلة الشراء">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <span id="cartBadge" class="absolute -top-1 -right-1 bg-rosegold-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold border-2 border-white transform scale-0 transition-transform duration-300">0</span>
+                </button>
+
+                <button onclick="scrollToSection('services-products')" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full gold-button text-white font-bold text-sm shadow-md hover:shadow-lg">
+                    <i class="fa-regular fa-calendar-check text-base"></i>
+                    <span>احجزي موعدك</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-gray-700 hover:text-rosegold-600 focus:outline-none">
+                    <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-rosegold-200 bg-white/95 backdrop-blur-md px-6 py-4 flex-col gap-4 text-gray-700 font-semibold shadow-xl">
+            <a href="#hero" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100 flex items-center justify-between">
+                <span>الرئيسية</span> <i class="fa-solid fa-angle-left text-xs text-rosegold-400"></i>
+            </a>
+            <a href="#services-products" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100 flex items-center justify-between">
+                <span>الخدمات والمنتجات</span> <i class="fa-solid fa-angle-left text-xs text-rosegold-400"></i>
+            </a>
+            <a href="#about" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100 flex items-center justify-between">
+                <span>لماذا نحن؟</span> <i class="fa-solid fa-angle-left text-xs text-rosegold-400"></i>
+            </a>
+            <a href="#reviews" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100 flex items-center justify-between">
+                <span>آراء الصبايا</span> <i class="fa-solid fa-angle-left text-xs text-rosegold-400"></i>
+            </a>
+            <button onclick="toggleMobileMenu(); scrollToSection('services-products')" class="w-full mt-2 py-3 rounded-xl gold-button text-white font-bold text-center">
+                احجزي موعدك الآن
+            </button>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!--                HERO SECTION                -->
+    <!-- ========================================== -->
+    <section id="hero" class="relative pt-12 pb-20 md:py-24 overflow-hidden">
+        <!-- Decorative Glow Background Elements -->
+        <div class="absolute top-10 right-1/4 w-72 h-72 bg-rosegold-300/30 rounded-full filter blur-3xl -z-10 animate-pulse-slow"></div>
+        <div class="absolute bottom-10 left-10 w-96 h-96 bg-champagne/20 rounded-full filter blur-3xl -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text Info -->
+                <div class="lg:col-span-7 text-center lg:text-right space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rosegold-100/80 border border-rosegold-200 text-rosegold-700 text-xs sm:text-sm font-bold shadow-sm">
+                        <span class="flex h-2 w-2 rounded-full bg-rosegold-500 animate-ping"></span>
+                        <span id="heroBadge">أرقى مركز تجميل وعناية بالمرأة</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight font-tajawal">
+                        إطلالتكِ الساحرة <br class="hidden sm:inline"/>
+                        تبدأ من <span class="gold-gradient-text">كوافير صبايا</span>
+                    </h1>
+
+                    <p class="text-gray-600 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed" id="heroDescription">
+                        نقدم لكِ أحدث صيحات التسريحات، المكياج السينمائي، والعناية الاحترافية بالبشرة والشعر بأيدي خبيرات متخصصات لتكوني الملكة في كل مناسبة.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <button onclick="scrollToSection('services-products')" class="px-8 py-4 rounded-full gold-button text-white font-extrabold text-base shadow-xl flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>استكشفي الخدمات والمنتجات</span>
+                        </button>
+                        
+                        <a id="directWhatsappBtn" href="#" target="_blank" class="px-8 py-4 rounded-full bg-white text-gray-800 border-2 border-rosegold-300 hover:border-rosegold-500 font-bold text-base shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-green-500 text-xl"></i>
+                            <span>استشارة سريعة عبر الواتساب</span>
+                        </a>
+                    </div>
+
+                    <!-- Features Highlights Bar -->
+                    <div class="pt-8 border-t border-rosegold-200/60 grid grid-cols-3 gap-4 text-center">
+                        <div class="p-3 rounded-2xl bg-white/60 backdrop-blur-sm border border-white">
+                            <i class="fa-solid fa-crown text-rosegold-500 text-xl mb-1"></i>
+                            <h4 class="text-xs sm:text-sm font-bold text-gray-800">جودة ملكية</h4>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-white/60 backdrop-blur-sm border border-white">
+                            <i class="fa-solid fa-sparkles text-champagne text-xl mb-1"></i>
+                            <h4 class="text-xs sm:text-sm font-bold text-gray-800">خبيرات تجميل</h4>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-white/60 backdrop-blur-sm border border-white">
+                            <i class="fa-solid fa-[#25D366] fa-shield-heart text-rosegold-500 text-xl mb-1"></i>
+                            <h4 class="text-xs sm:text-sm font-bold text-gray-800">منتجات أصلية 100%</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Banner -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Outer Decorative Frame -->
+                        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-r from-rosegold-300 via-champagne to-rosegold-400 opacity-40 blur-lg animate-pulse-slow"></div>
+                        
+                        <!-- Main Frame Container -->
+                        <div class="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl bg-white">
+                            <img id="heroImage" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="كوافير صبايا" class="w-full h-[440px] object-cover hover:scale-105 transition-transform duration-700">
+                            
+                            <!-- Floating Badge on Image -->
+                            <div class="absolute bottom-4 right-4 left-4 glass-dark p-4 rounded-2xl text-white flex items-center justify-between border border-white/20">
+                                <div>
+                                    <p class="text-xs text-rosegold-300 font-semibold">احصلي على حسومات خاصة</p>
+                                    <p class="text-sm font-bold">خصم 20% لعميلات الموقع الإلكتروني</p>
+                                </div>
+                                <span class="bg-rosegold-500 text-white text-xs font-black px-3 py-1.5 rounded-full">عرض اليوم</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!--       SERVICES & PRODUCTS SECTION          -->
+    <!-- ========================================== -->
+    <section id="services-products" class="py-16 bg-gradient-to-b from-transparent via-rosegold-50/50 to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Title -->
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-rosegold-600 font-bold text-sm tracking-widest uppercase">قائمة العناية والجمال</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2 font-tajawal">خدماتنا الفاخرة ومنتجاتنا المختارة</h2>
+                <div class="w-20 h-1 bg-rosegold-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-10" id="filterContainer">
+                <!-- JS will populate buttons here -->
+            </div>
+
+            <!-- Products / Services Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8" id="catalogGrid">
+                <!-- Dynamic Items Inserted via JavaScript -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!--            WHY CHOOSE US / ABOUT           -->
+    <!-- ========================================== -->
+    <section id="about" class="py-16 bg-white border-y border-rosegold-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="glass-panel p-8 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-rosegold-100 text-rosegold-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl shadow-inner">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">تعقيم وعناية فائقة</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">نلتزم بأعلى معايير النظافة والتعقيم الشامل لجميع أدوات العناية بالشعر والبشرة لضمان سلامتك وراحتك.</p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-rosegold-100 text-rosegold-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl shadow-inner">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">ماركات عالمية موثوقة</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">نستخدم ونوفر فقط أفضل المستحضرات والزيوت والصبغات العالمية الخالية من المواد الكيميائية الضارة.</p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-rosegold-100 text-rosegold-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl shadow-inner">
+                        <i class="fa-solid fa-clock text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">دقة وسرعة المواعيد</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">نحترم وقتك الثمين؛ نظام حجزنا يضمن لك الحصول على خدمتك في الوقت المحدد تماماً دون انتظار طويل.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!--            TESTIMONIALS SECTION            -->
+    <!-- ========================================== -->
+    <section id="reviews" class="py-16 bg-rosegold-50/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-rosegold-600 font-bold text-sm">تجارب حقيقية</span>
+                <h2 class="text-3xl font-extrabold text-gray-900 mt-1 font-tajawal">ماذا تقول صبايا عنا؟</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Review Card 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-rosegold-100 space-y-4">
+                    <div class="flex text-amber-400 gap-1 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm italic">"شغل كوافير صبايا لا يعلى عليه! سويت عندهم تسريحة ومكياج زفاف أختي والكل سألني عن الإطلالة. تعامل رائع جداً وسلس."</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-rosegold-200 text-rosegold-700 flex items-center justify-center font-bold">أ.م</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-gray-800">أروى المقبلي</h4>
+                            <span class="text-xs text-gray-400">عميلة دائمة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-rosegold-100 space-y-4">
+                    <div class="flex text-amber-400 gap-1 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm italic">"اشتريت سيروم العناية بالشعر وزيت الارجان الأصلي، النتائج ظهرت من أول أسبوع! خدمة التوصيل والطلب عبر الواتس كانت سريعة."</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-rosegold-200 text-rosegold-700 flex items-center justify-center font-bold">س.ع</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-gray-800">سارة العبسي</h4>
+                            <span class="text-xs text-gray-400">طلب متجر</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-rosegold-100 space-y-4">
+                    <div class="flex text-amber-400 gap-1 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm italic">"جلسات العناية بالبشرة (الهيدرافيسال) عندهم خيالية. المكان نظيف ومرتب والستاف بشوشات ويفتحوا النفس."</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-rosegold-200 text-rosegold-700 flex items-center justify-center font-bold">ر.ح</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-gray-800">ريما الشامي</h4>
+                            <span class="text-xs text-gray-400">حجز جلسة عناية</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!--            CART SIDEBAR DRAWER             -->
+    <!-- ========================================== -->
+    <div id="cartBackdrop" onclick="toggleCartDrawer()" class="fixed inset-0 bg-black/50 z-50 hidden opacity-0 transition-opacity duration-300"></div>
+
+    <aside id="cartDrawer" class="fixed top-0 bottom-0 left-0 w-full max-w-md bg-white z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-out flex flex-col">
+        <!-- Cart Header -->
+        <div class="p-5 border-b border-gray-100 flex items-center justify-between bg-rosegold-50">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-bag-shopping text-rosegold-600 text-xl"></i>
+                <h3 class="text-lg font-extrabold text-gray-800">سلة الحجوزات والطلبات</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="p-2 text-gray-400 hover:text-gray-600 rounded-full">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div class="flex-1 overflow-y-auto p-5 space-y-4" id="cartItemsContainer">
+            <!-- Dynamic Items Added Here -->
+        </div>
+
+        <!-- Booking Info Inputs & Checkout -->
+        <div class="p-5 border-t border-gray-100 bg-gray-50/80 space-y-4">
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">اسمكِ الكريم *</label>
+                    <input type="text" id="customerName" placeholder="أدخلي اسمكِ هنا" class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:outline-none focus:border-rosegold-500">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">تاريخ الموعد (إن وجد)</label>
+                        <input type="date" id="bookingDate" class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:outline-none focus:border-rosegold-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">الوقت المفضل</label>
+                        <input type="time" id="bookingTime" class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:outline-none focus:border-rosegold-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">ملاحظات أو العنوان (للمنتجات)</label>
+                    <textarea id="customerNotes" rows="2" placeholder="أي تفاصيل إضافية تريدين خبرنا بها..." class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:outline-none focus:border-rosegold-500"></textarea>
+                </div>
+            </div>
+
+            <!-- Price Breakdown -->
+            <div class="border-t border-gray-200 pt-3 space-y-2">
+                <div class="flex justify-between text-sm text-gray-600">
+                    <span>المجموع الكلي:</span>
+                    <span id="cartTotalPrice" class="font-extrabold text-rosegold-700 text-lg">0</span>
+                </div>
+            </div>
+
+            <!-- Send via WhatsApp Button -->
+            <button onclick="sendOrderViaWhatsApp()" class="w-full py-3.5 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold text-base shadow-lg transition-all flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                <span>إرسال الطلب وحجز الموعد عبر الواتساب</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- ========================================== -->
+    <!--            QUICK DETAIL MODAL              -->
+    <!-- ========================================== -->
+    <div id="itemModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl animate-float">
+            <div class="relative h-64 bg-gray-100">
+                <img id="modalImage" src="" alt="" class="w-full h-full object-cover">
+                <button onclick="closeItemModal()" class="absolute top-4 right-4 w-9 h-9 bg-black/40 text-white rounded-full flex items-center justify-center hover:bg-black">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <span id="modalCategory" class="text-xs font-bold px-3 py-1 bg-rosegold-100 text-rosegold-700 rounded-full">الخدمة</span>
+                        <h3 id="modalTitle" class="text-2xl font-bold text-gray-900 mt-2">عنوان الخدمة</h3>
+                    </div>
+                    <span id="modalPrice" class="text-xl font-black text-rosegold-600">0</span>
+                </div>
+                <p id="modalDescription" class="text-gray-600 text-sm leading-relaxed">تفاصيل ووصف الخدمة أو المنتج...</p>
+                <div class="pt-4 border-t border-gray-100 flex gap-3">
+                    <button id="modalAddBtn" class="flex-1 py-3 rounded-xl gold-button text-white font-bold">إضافة إلى السلة</button>
+                    <button onclick="closeItemModal()" class="px-5 py-3 rounded-xl bg-gray-100 text-gray-700 font-semibold hover:bg-gray-200">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!--          FLOATING WHATSAPP BUTTON          -->
+    <!-- ========================================== -->
+    <a id="floatingWhatsapp" href="#" target="_blank" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform duration-300 animate-pulse-slow" title="تواصل مباشر عبر الواتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- ========================================== -->
+    <!--                   FOOTER                   -->
+    <!-- ========================================== -->
+    <footer class="bg-luxuryDark text-white pt-12 pb-8 border-t border-rosegold-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-gray-800">
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-rosegold-500/20 flex items-center justify-center p-1 border border-rosegold-400/40">
+                            <svg viewBox="0 0 100 100" class="w-full h-full">
+                                <path d="M50 10 C 25 10, 15 35, 15 55 C 15 75, 30 90, 50 90 C 70 90, 85 75, 85 55 C 85 35, 75 10, 50 10 Z" fill="none" stroke="#E8B4B8" stroke-width="3"/>
+                                <path d="M35 30 Q 50 15, 65 30 Q 75 45, 60 65 Q 50 80, 40 60 Q 30 40, 35 30 Z" fill="#E8B4B8"/>
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-black font-tajawal text-rosegold-300">كوافير صبايا</span>
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
+                        وجهتكِ الأولى للجمال والأناقة. نسعى دائماً لتقديم أفضل الخدمات والمنتجات لتزدادي تألقاً في كل أوقاتكِ.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-base font-bold text-rosegold-300 mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#hero" class="hover:text-white">الرئيسية</a></li>
+                        <li><a href="#services-products" class="hover:text-white">قائمة الخدمات</a></li>
+                        <li><a href="#services-products" class="hover:text-white">متجر المنتجات</a></li>
+                        <li><a href="#reviews" class="hover:text-white">آراء العملاء</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-base font-bold text-rosegold-300 mb-4">تواصل معنا</h4>
+                    <div class="space-y-3 text-sm text-gray-400">
+                        <p><i class="fa-solid fa-phone text-rosegold-400 ml-2"></i> <span id="footerPhone">967700000000</span></p>
+                        <p><i class="fa-solid fa-location-dot text-rosegold-400 ml-2"></i> شارع الجمال - المركز الرئيسي</p>
+                        <p><i class="fa-solid fa-clock text-rosegold-400 ml-2"></i> يومياً من 10 صباحاً حتى 9 مساءً</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-6 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>© <span id="currentYear"></span> كوافير صبايا. جميع الحقوق محفوظة.</p>
+                <p class="text-rosegold-400/80">تصميم وتطوير فاخر 💖</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ========================================== -->
+    <!--            JAVASCRIPT & CONFIG             -->
+    <!-- ========================================== -->
+    <script>
+        /* ======================================================
+           EASY CONFIGURATION OBJECT (عدل البيانات هنا بسهولة)
+        ====================================================== */
+        const SITE_CONFIG = {
+            whatsappNumber: "967700000000", // ضع رقم الواتس هنا مع المفتاح الدولي بدون +
+            salonName: "كوافير صبايا",
+            subtitle: "عالم من الأناقة والجمال والتميز",
+            currency: "ر.س", // العملة (ريال سعودي / دولار / ريال يمني ...إلخ)
+            
+            // قائمة الخدمات والمنتجات السهلة للتعديل
+            items: [
+                {
+                    id: 1,
+                    title: "تسريحة شعر VIP عرائسي",
+                    category: "تسريحات ومكياج",
+                    price: 350,
+                    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80",
+                    description: "تسريحة عرائس ملكية فاخرة مع مثبت يدوم طويلاً وإضافة إكسسوارات الشعر الفاخرة حسب الطلب.",
+                    rating: 5,
+                    isService: true
+                },
+                {
+                    id: 2,
+                    title: "مكياج سينمائي / سهرة",
+                    category: "تسريحات ومكياج",
+                    price: 250,
+                    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=600&q=80",
+                    description: "مكياج سهرة ناعم أو ثقيل باستخدام أفضل الماركات العالمية المعتمدة ليعكس جمال ملامحك.",
+                    rating: 5,
+                    isService: true
+                },
+                {
+                    id: 3,
+                    title: "جلسة هيدرافيسال متكاملة للبشرة",
+                    category: "العناية بالبشرة",
+                    price: 180,
+                    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80",
+                    description: "تنظيف عميق للبشرة بإزالة الرؤوس السوداء، تقشير وتغذية بالنعومة وقناع الهيالورونيك الفاخر.",
+                    rating: 5,
+                    isService: true
+                },
+                {
+                    id: 4,
+                    title: "سيروم الأرجان المغربي المكثف",
+                    category: "منتجات عناية بالشعر",
+                    price: 90,
+                    image: "https://images.unsplash.com/photo-1608248597261-e4d990597395?auto=format&fit=crop&w=600&q=80",
+                    description: "سيروم مغذي طبيعي 100% لإصلاح الشعر التالف والتقصف ومنحه لمعاناً حريرياً ورائحة جذابة.",
+                    rating: 4.9,
+                    isService: false
+                },
+                {
+                    id: 5,
+                    title: "جلسة بروتين وتنعيم الشعر",
+                    category: "تسريحات ومكياج",
+                    price: 400,
+                    image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=80",
+                    description: "معالجة الشعر بالبروتين الطبيعي لترطيبه وتنعيمه والتخلص من الهيشان بشكل تام ومضمون.",
+                    rating: 5,
+                    isService: true
+                },
+                {
+                    id: 6,
+                    title: "مجموعة ماسك وتغذيـة الكولاجين",
+                    category: "منتجات عناية بالشعر",
+                    price: 120,
+                    image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=600&q=80",
+                    description: "ماسك علاج منزلي مكثف يعيد للشعر حيوية وقوة أليافه ويحمي الأطراف من الجفاف.",
+                    rating: 4.8,
+                    isService: false
+                },
+                {
+                    id: 7,
+                    title: "باكيج العروس الشامل (عرض خاص)",
+                    category: "عروض خاصة",
+                    price: 850,
+                    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80",
+                    description: "يشمل: تسريحة + مكياج ملكي + تنظيف بشرة + بديكير ومانيكير + جلسة عناية بالشعر قبل الزفاف.",
+                    rating: 5,
+                    isService: true
+                },
+                {
+                    id: 8,
+                    title: "طقم العناية اليومية بالأظافر",
+                    category: "منتجات عناية بالشعر",
+                    price: 65,
+                    image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80",
+                    description: "مجموعة أدوات ومقويات احترافية للحفاظ على صحة وجمال الأظافر وحمايتها من التكسر.",
+                    rating: 4.7,
+                    isService: false
+                }
+            ]
+        };
+
+        /* ======================================================
+           STATE MANAGEMENT
+        ====================================================== */
+        let cart = [];
+        let currentCategory = "الكل";
+
+        /* ======================================================
+           INITIALIZATION
+        ====================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply Site Config Text
+            document.getElementById('salonLogoTitle').innerText = SITE_CONFIG.salonName;
+            document.getElementById('salonSubtitle').innerText = SITE_CONFIG.subtitle;
+            document.getElementById('footerPhone').innerText = "+" + SITE_CONFIG.whatsappNumber;
+            document.getElementById('currentYear').innerText = new Date().getFullYear();
+
+            // Set Whatsapp Links
+            const waUrl = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent('مرحباً كوافير صبايا، أود الاستفسار عن الخدمات المتاحة...')}`;
+            document.getElementById('directWhatsappBtn').href = waUrl;
+            document.getElementById('floatingWhatsapp').href = waUrl;
+
+            // Render Categories & Catalog
+            renderCategories();
+            renderCatalog();
+        });
+
+        /* ======================================================
+           RENDER CATEGORY TABS
+        ====================================================== */
+        function renderCategories() {
+            const categories = ["الكل", ...new Set(SITE_CONFIG.items.map(item => item.category))];
+            const container = document.getElementById('filterContainer');
+            
+            container.innerHTML = categories.map(cat => `
+                <button onclick="setCategory('${cat}')" 
+                        class="px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${currentCategory === cat ? 'gold-button text-white shadow-md' : 'bg-white text-gray-700 hover:bg-rosegold-100 border border-rosegold-200'}">
+                    ${cat}
+                </button>
+            `).join('');
+        }
+
+        function setCategory(cat) {
+            currentCategory = cat;
+            renderCategories();
+            renderCatalog();
+        }
+
+        /* ======================================================
+           RENDER CATALOG GRID
+        ====================================================== */
+        function renderCatalog() {
+            const grid = document.getElementById('catalogGrid');
+            const filtered = currentCategory === "الكل" 
+                ? SITE_CONFIG.items 
+                : SITE_CONFIG.items.filter(item => item.category === currentCategory);
+
+            grid.innerHTML = filtered.map(item => `
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-rosegold-100 flex flex-col justify-between group">
+                    <div class="relative overflow-hidden cursor-pointer" onclick="openItemModal(${item.id})">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-52 object-cover group-hover:scale-108 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 text-xs font-bold px-3 py-1 bg-white/90 backdrop-blur-md text-rosegold-700 rounded-full shadow-sm">
+                            ${item.category}
+                        </span>
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-1 text-amber-400 text-xs mb-1">
+                                ${'<i class="fa-solid fa-star"></i>'.repeat(Math.floor(item.rating))}
+                                <span class="text-gray-400 text-xs mr-1 font-semibold">(${item.rating})</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 group-hover:text-rosegold-600 transition-colors cursor-pointer" onclick="openItemModal(${item.id})">
+                                ${item.title}
+                            </h3>
+                            <p class="text-gray-500 text-xs mt-1 line-clamp-2 leading-relaxed">
+                                ${item.description}
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-gray-400 block font-semibold">السعر</span>
+                                <span class="text-xl font-black text-rosegold-600">${item.price} <small class="text-xs font-bold">${SITE_CONFIG.currency}</small></span>
+                            </div>
+                            
+                            <button onclick="addToCart(${item.id})" class="px-4 py-2.5 rounded-xl gold-button text-white font-bold text-sm flex items-center gap-2 shadow-sm">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                                <span>${item.isService ? 'حجز' : 'إضافة'}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /* ======================================================
+           CART LOGIC & DRAWER
+        ====================================================== */
+        function addToCart(itemId) {
+            const item = SITE_CONFIG.items.find(i => i.id === itemId);
+            if (!item) return;
+
+            const existing = cart.find(c => c.id === itemId);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...item, quantity: 1 });
+            }
+
+            updateCartUI();
+            toggleCartDrawer(true);
+        }
+
+        function updateCartQuantity(itemId, delta) {
+            const item = cart.find(c => c.id === itemId);
+            if (!item) return;
+
+            item.quantity += delta;
+            if (item.quantity <= 0) {
+                cart = cart.filter(c => c.id !== itemId);
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(itemId) {
+            cart = cart.filter(c => c.id !== itemId);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            // Update badge count
+            const totalCount = cart.reduce((sum, i) => sum + i.quantity, 0);
+            const badge = document.getElementById('cartBadge');
+            badge.innerText = totalCount;
+            if (totalCount > 0) {
+                badge.classList.remove('scale-0');
+            } else {
+                badge.classList.add('scale-0');
+            }
+
+            // Render Items inside Drawer
+            const container = document.getElementById('cartItemsContainer');
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fa-solid fa-bag-shopping text-5xl mb-3 text-rosegold-200"></i>
+                        <p class="font-bold text-base">السلة فارغة حالياً</p>
+                        <p class="text-xs mt-1">اختر من خدماتنا ومنتجاتنا الفاخرة لإضافتها</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = cart.map(item => `
+                    <div class="flex items-center gap-3 bg-rosegold-50/50 p-3 rounded-2xl border border-rosegold-100">
+                        <img src="${item.image}" alt="${item.title}" class="w-16 h-16 rounded-xl object-cover">
+                        <div class="flex-1">
+                            <h4 class="text-sm font-bold text-gray-800">${item.title}</h4>
+                            <span class="text-xs font-black text-rosegold-600">${item.price * item.quantity} ${SITE_CONFIG.currency}</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white px-2 py-1 rounded-lg border border-gray-200">
+                            <button onclick="updateCartQuantity(${item.id}, -1)" class="text-gray-500 hover:text-rosegold-600 px-1 font-bold">-</button>
+                            <span class="text-xs font-bold w-4 text-center">${item.quantity}</span>
+                            <button onclick="updateCartQuantity(${item.id}, 1)" class="text-gray-500 hover:text-rosegold-600 px-1 font-bold">+</button>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-gray-400 hover:text-red-500 p-1">
+                            <i class="fa-solid fa-trash-can text-sm"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            // Calculate Total
+            const totalSum = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('cartTotalPrice').innerText = totalSum + " " + SITE_CONFIG.currency;
+        }
+
+        function toggleCartDrawer(openState) {
+            const drawer = document.getElementById('cartDrawer');
+            const backdrop = document.getElementById('cartBackdrop');
+
+            if (openState === true || drawer.classList.contains('-translate-x-full')) {
+                drawer.classList.remove('-translate-x-full');
+                backdrop.classList.remove('hidden');
+                setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+            } else {
+                drawer.classList.add('-translate-x-full');
+                backdrop.classList.add('opacity-0');
+                setTimeout(() => backdrop.classList.add('hidden'), 300);
+            }
+        }
+
+        /* ======================================================
+           SEND ORDER TO WHATSAPP
+        ====================================================== */
+        function sendOrderViaWhatsApp() {
+            if (cart.length === 0) {
+                alert('عذراً، السلة فارغة! يرجى اختيار خدمة أو منتج أولاً.');
+                return;
+            }
+
+            const name = document.getElementById('customerName').value.trim();
+            const date = document.getElementById('bookingDate').value;
+            const time = document.getElementById('bookingTime').value;
+            const notes = document.getElementById('customerNotes').value.trim();
+
+            if (!name) {
+                alert('يرجى إدخال اسمكِ الكريم لإكمال الطلب.');
+                document.getElementById('customerName').focus();
+                return;
+            }
+
+            // Build Text Message
+            let msg = `🌸 *طلب جديد من كوافير صبايا* 🌸\n\n`;
+            msg += `👤 *اسم العميلة:* ${name}\n`;
+            if (date) msg += `📅 *تاريخ الموعد:* ${date}\n`;
+            if (time) msg += `⏰ *الوقت المفضل:* ${time}\n`;
+            if (notes) msg += `📝 *ملاحظات:* ${notes}\n`;
+            
+            msg += `\n🛒 *تفاصيل الطلبات:* \n`;
+            cart.forEach((item, index) => {
+                msg += `${index + 1}. ${item.title} (العدد: ${item.quantity}) - ${item.price * item.quantity} ${SITE_CONFIG.currency}\n`;
+            });
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            msg += `\n💵 *المجموع الكلي:* ${total} ${SITE_CONFIG.currency}\n\n`;
+            msg += `شكراً لكم! أتطلع لتأكيد الحجز.`;
+
+            // Open WhatsApp Link
+            const whatsappUrl = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        /* ======================================================
+           ITEM DETAIL MODAL
+        ====================================================== */
+        function openItemModal(itemId) {
+            const item = SITE_CONFIG.items.find(i => i.id === itemId);
+            if (!item) return;
+
+            document.getElementById('modalImage').src = item.image;
+            document.getElementById('modalTitle').innerText = item.title;
+            document.getElementById('modalCategory').innerText = item.category;
+            document.getElementById('modalDescription').innerText = item.description;
+            document.getElementById('modalPrice').innerText = item.price + " " + SITE_CONFIG.currency;
+
+            const addBtn = document.getElementById('modalAddBtn');
+            addBtn.onclick = () => {
+                addToCart(item.id);
+                closeItemModal();
+            };
+
+            document.getElementById('itemModal').classList.remove('hidden');
+        }
+
+        function closeItemModal() {
+            document.getElementById('itemModal').classList.add('hidden');
+        }
+
+        /* ======================================================
+           MOBILE MENU & UTILS
+        ====================================================== */
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+
+        function scrollToSection(id) {
+            const sec = document.getElementById(id);
+            if (sec) {
+                sec.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
